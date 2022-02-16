@@ -8,8 +8,14 @@ class Character:
     def __str__(self):
         return f"Name: {self.name}\n HP: {self.hp}\n Attack: {self.attack}\n Armor: {self.armor}"
 
-    def damage(self):
+    def get_attack(self):
         return self.attack
+
+    def get_health(self):
+        return self.hp
+
+    def get_name(self):
+        return self.name
 
     def take_damage(self, damage):
         relative_damage = damage-self.armor
@@ -17,22 +23,26 @@ class Character:
             self.hp -= relative_damage
             if self.hp < 0:
                 self.hp = 0
-
-    def get_health(self):
-        return self.hp
 
 
 class Goblin:
-    def __init__(self, hp, attack, armor):
+    def __init__(self, hp, attack, armor, id):
         self.hp = hp
         self.attack = attack
         self.armor = armor
+        self.id = id
 
     def __str__(self):
-        return f"Goblin\n HP: {self.hp}\n Attack: {self.attack}\n Armor: {self.armor}"
+        return f"Goblin #{self.id}\n HP: {self.hp}\n Attack: {self.attack}\n Armor: {self.armor}"
 
-    def damage(self):
+    def get_attack(self):
         return self.attack
+
+    def get_health(self):
+        return self.hp
+
+    def get_name(self):
+        return f"Goblin #{self.id}"
 
     def take_damage(self, damage):
         relative_damage = damage-self.armor
@@ -41,6 +51,3 @@ class Goblin:
             self.hp -= relative_damage
             if self.hp < 0:
                 self.hp = 0
-
-    def get_health(self):
-        return self.hp
