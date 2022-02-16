@@ -44,6 +44,8 @@ if __name__ == "__main__":
         fight(players, enemies)
         print()
         fight_round += 1
+        if len(players) == 0 or len(enemies) == 0:
+            break
 
     if len(players) == 0:
         print("The enemies have won!")
